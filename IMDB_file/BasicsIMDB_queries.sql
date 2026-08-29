@@ -1,0 +1,11 @@
+use imdb;
+select * from movies;
+select name from movies;
+select name,year from movies where year>2000;
+select name,year from movies where year =1999;
+select name,`rank` from movies where `rank`>8;
+select name,`rank` from movies where `rank`<7;
+select first_name,last_name from actors where gender = 'M';
+select first_name,last_name from actors where gender ='F';
+select first_name,last_name,film_count from actors;
+select name,`rank` from movies where `rank` is null;
