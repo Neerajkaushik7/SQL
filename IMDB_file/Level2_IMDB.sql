@@ -1,0 +1,11 @@
+use imdb;
+select name,`rank` from movies order by `rank` DESC limit 10;
+select name,year from movies order by year asc limit 10;
+select first_name,last_name,film_count from actors order by film_count desc limit 10;
+select count(*) as Total_movies from movies;
+select count(*) from actors;
+select avg(`rank`) as Avg_rating from movies;
+select max(`rank`) as Highest_rating from movies;
+select min(`rank`) as Lowest_rating from movies;
+select count(id) as ct,year from movies group by year order by ct;
+select year,avg(`rank`) from movies group by year order by year;
