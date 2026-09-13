@@ -1,0 +1,11 @@
+use imdb;
+select year,count(id) as movie_count from movies group by year having (movie_count>2 or movie_count=2) ;
+select genre,count(movie_id) as Total_movie from movies_genres group by genre;
+select genre,avg(`rank`) as AvgMarks from movies join movies_genres on id=movie_id group by genre;
+select genre,count(movie_id) as Movie_total from movies_genres group by genre having Movie_total>5;
+select director_id,count(movie_id) as count_movie from movies_directors group by director_id; 
+select director_id,count(movie_id) as Movie_count from movies_directors group by director_id having Movie_count>3;
+select actor_id,count(movie_id) as movie_count from roles group by actor_id;
+select actor_id,count(movie_id) as movie_count from roles group by actor_id having movie_count>1;
+select gender,count(id) as count from actors group by gender;
+select director_id,avg(prob) as average from directors_genres group by director_id;
