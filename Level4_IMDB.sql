@@ -1,0 +1,12 @@
+use imdb;
+select `name`,genre from movies inner join movies_genres on id=movie_id;
+select `name`,movies_directors.director_id from movies inner join movies_directors on movies.id=movies_directors.movie_id;
+select name as movie_name,concat(first_name,' ',last_name) as director_name from movies inner join movies_directors on movies.id=movies_directors.movie_id inner join directors on directors.id=movies_directors.director_id; 
+select concat(first_name," ",last_name) as Actor_name, `name` as movie_name from actors inner join roles on actors.id=roles.actor_id inner join movies on movies.id=roles.movie_id;
+select concat(first_name," ",last_name) as Actor_name, `name` from actors inner join roles on actors.id=roles.actor_id inner join movies on movies.id=roles.movie_id where first_name="Kevin";
+select `name` from movies inner join roles on movies.id=roles.movie_id where roles.actor_id=(select id from actors where first_name="Kevin" and last_name="Bacon" );
+select * from directors where first_name Like "%Christopher%";
+SELECT movies.name FROM movies INNER JOIN movies_directors ON movies.id = movies_directors.movie_id WHERE movies_directors.director_id = 1000;
+select concat(first_name," ",last_name) as actor_name,film_count, count(distinct movie_id) from actors inner join roles on actors.id=roles.actor_id group by actors.id,actors.first_name, actors.last_name;
+select `name`,genre,`rank` from movies inner join movies_genres on movies.id=movies_genres.movie_id;
+select `name`,concat(first_name," ",last_name)as dir_name,`rank` from movies inner join movies_directors on movies.id=movies_directors.movie_id inner join directors on directors.id=movies_directors.director_id;
